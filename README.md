@@ -1,19 +1,48 @@
-## Frontend: vite+react javaScript+swc, tailwind
-to run the front end, simple install vite+react and tailwind, and run 
-```
-npm install
-npm run dev
-```
-    
-## Backend: Django, drf, for api calls
-we are not using backend to serve html and it only serves data to frontend through api calls. this means only run backend simultaneously when you want to receive data from these apis.
-```
-python manage.py migrate
-python manage.py runserver
-```
+# CareerQuest
 
-## database
-currently, after runniing 'python manage.py migrate' you will get a 'db.sqlite3' file, this is our temporary database. We are not using mysql from the get go, but it not difficult to switch to that if we want to in the future.
+**AI-Powered Career Guidance Platform**
 
-## ml_models:
-documentation to be added
+CareerQuest is an AI-driven platform designed to simplify career selection. It assesses users' skills, recommends suitable job roles, and provides access to free online learning resources, empowering users to make informed career decisions.
+
+## 🚀 Features
+
+- **AI-Powered Skill Assessment** – Identify strengths and areas for improvement.
+- **Personalized Career Recommendations** – Get job role suggestions based on skills.
+- **Free Learning Resources** – Access curated online materials to upskill.
+- **User-Friendly Interface** – Simple and intuitive design for easy navigation.
+- **Real-Time Insights** – Dynamic career mapping for continuous growth.
+
+## 📸 Images/Demo
+### Home Page
+![Home Page](./frontend/public/CQ_HomePage.png)  
+### Skill Assessment
+![Skill Assessment Feature](./frontend/public/CQ_SkillAssisment.png)  
+### Learning Resources
+![Learning Resources](./frontend/public/CQ_Learn.png)  
+
+## 🔧 How It Works
+
+1. **Skill Assessment** – Users take a quick AI-powered test to analyze their skills.
+2. **Career Matching** – AI suggests job roles best suited for the user.
+3. **Learning Resources** – Users get access to relevant online resources.
+4. **Continuous Improvement** – Track progress and refine career paths.
+
+## 💡 Why Choose CareerQuest?
+
+- **Free & Accessible** – No cost, open to everyone.
+- **AI-Driven Personalization** – Tailored career paths based on real skills.
+- **Self-Paced Learning** – Improve at your own pace with curated resources.
+
+## 📌 Future Scope
+
+- Advanced AI models for deeper skill analysis.
+- Integration with job portals for real-time opportunities.
+- Personalized mentorship & community support.
+
+## 📬 Contact
+
+For inquiries or collaboration, reach out at **dm.piyushjain@gmail.com or dm.mayankjain@gmail.com**.
+
+---
+
+*Empower your future with CareerQuest!* 🚀
