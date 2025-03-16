@@ -1,0 +1,8 @@
+django
+djangorestframework
+mysqlclient
+pandas
+numpy
+scikit-learn
+django-cors-headers
+requests
