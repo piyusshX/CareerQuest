@@ -2,7 +2,7 @@ import React from 'react'
 import {BriefcaseBusinessIcon} from "lucide-react";
 import "./profile.css";
 
-function UserJobRecommendation({job1, job2, job3}) {
+function UserJobRecommendation({job1, domain, match}) {
   return (
     <div className="w-full px-7 py-5 max-w-md bg-white rounded-2xl shadow-lg overflow-hidden">
       <div className=''>
@@ -13,15 +13,15 @@ function UserJobRecommendation({job1, job2, job3}) {
         <div className="mt-4 space-y-2">
             <div className="flex items-center text-gray-600">
               <BriefcaseBusinessIcon className="w-4 h-4 mr-2 text-[#18BED4]" />
-              <span>{job1}</span>
+              <span>Position: {job1}</span>
             </div>
             <div className="flex items-center text-gray-600">
               <BriefcaseBusinessIcon className="w-4 h-4 mr-2 text-[#18BED4]"/>
-              <span>{job2}</span>
+              <span>Domain: {domain}</span>
             </div>
             <div className="flex items-center text-gray-600">
               <BriefcaseBusinessIcon className="w-4 h-4 mr-2 text-[#18BED4]"/>
-              <span>{job3}</span>
+              <span>Score: {match?.toFixed(2)}</span>
             </div>
           </div>
       </div>

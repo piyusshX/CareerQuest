@@ -73,7 +73,7 @@ function SkillAssessment() {
           {[...Array(8)].map((_, index) => (
             <Skill_Input
               key={index}
-              value={skills[index]}
+              value={data[option]?.[index] || ""} 
               index={index + 1}
               disabled={!option}
               onChange={(e) => handleSkillChange(index, Number(e.target.value))}

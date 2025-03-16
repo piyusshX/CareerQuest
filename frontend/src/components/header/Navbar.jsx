@@ -12,7 +12,7 @@ function Navbar() {
 
   const navItems = [
     { name: 'Find Jobs', url: "/job", active: true },
-    { name: "About us", url: "/aboutus", active: true },
+    // { name: "About us", url: "/aboutus", active: true },
     { name: "Learning Resources", url: "/learn", active: true },
     { name: "Dashboard", url: "/dashboard", active: authToken },
   ];
@@ -29,13 +29,14 @@ function Navbar() {
           'Content-Type': 'application/json',
         },
       });
-  
+
       // Check for a successful response
       if (response.ok) {
         // Remove the token from localStorage and reset state
         localStorage.removeItem('authToken');
         setAuthToken('');
         console.log('Logged out successfully');
+        navigate('/');
       } else {
         console.error('Logout failed:', response.statusText);
       }
@@ -43,8 +44,11 @@ function Navbar() {
       console.error('Error logging out:', error);
     }
   }
-  
 
+  const troubleshoot = () => {
+    localStorage.clear();
+    navigate('/');
+  }
 
   return (
     <header className='w-full top-0 left-0 right-0 bg-white fixed z-50 shadow-sm'>
@@ -79,16 +83,25 @@ function Navbar() {
               <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div></button>
           </li> */}
           {navItems.map((item) => item.active ? (
-              <li key={item.name}>
-                <button
-                  onClick={() => navigate(item.url)}
-                  className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
-                >{item.name}
-                  <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div>
-                </button>
-              </li>
-            ) : null
-            )}
+            <li key={item.name}>
+              <button
+                onClick={() => navigate(item.url)}
+                className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
+              >{item.name}
+                <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div>
+              </button>
+            </li>
+          ) : null
+          )}
+          <>
+            <li>
+              <button className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
+                onClick={troubleshoot}
+              >Troubleshoot
+                <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div>
+              </button>
+            </li>
+          </>
           {authToken && authToken.length > 0 ? (
             <>
               <li>

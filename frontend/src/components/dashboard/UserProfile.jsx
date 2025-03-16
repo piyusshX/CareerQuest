@@ -19,8 +19,8 @@ function UserProfile({ username, email, domain, experience, level}) {
         <div className="pt-20">
           <div className="flex justify-between items-center">
             <div className="flex-col text-start">
-              <h1 className="text-2xl font-bold text-gray-900">Piyush jain{username}</h1>
-              <p className="text-[#18BED4] font-medium"> frontend{domain}</p>
+              <h1 className="text-2xl font-bold text-gray-900">{username}</h1>
+              <p className="text-[#18BED4] font-medium"> {domain}</p>
             </div>
             <BadgeCheckIcon className="text-[#18BED4]"/>
           </div>
@@ -35,7 +35,7 @@ function UserProfile({ username, email, domain, experience, level}) {
             </div>
             <div className="flex items-center text-gray-600">
               <Briefcase className="w-4 h-4 mr-2 text-[#18BED4]"/>
-              <span>Expirence : {experience}</span>
+              <span>Expirence : {experience} years</span>
             </div>
             <div className="flex items-center text-gray-600">
               <Award className="w-4 h-4 mr-2 text-[#18BED4]"/>
