@@ -4,39 +4,79 @@ import Domain from "./Domain";
 import { ClipboardList } from "lucide-react";
 import data from "./categories.json";
 import Experience from "./Experience";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function SkillAssessment() {
-  const [option, setOption] = useState("");
+  const [option, setOption] = useState(""); // Selected domain
+  const [experience, setExperience] = useState(0); // Experience state
+  const [skills, setSkills] = useState(Array(8).fill(0)); // Array to store skill values
+  const Navigate = useNavigate()
+
+  const handleSkillChange = (index, value) => {
+    const updatedSkills = [...skills];
+    updatedSkills[index] = value;
+    setSkills(updatedSkills);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      skills: skills.reduce((acc, value, index) => {
+        acc[`Skill${index + 1}`] = value || 0; // Ensure default value if empty
+        return acc;
+      }, {}),
+      domain: option,
+      experience: experience || 0, // Ensure experience is at least 0
+    };
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/assessment/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem('authToken')}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+      console.log("Response:", result);
+      Navigate('/');
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
 
   return (
-    <div className="bg-[#F7F7F7] pt-32 pb-10 px-20 ">
+    <div className="bg-[#F7F7F7] pt-32 pb-10 px-20">
       <div className="mb-6 flex items-center">
         <ClipboardList className="w-10 h-9 text-[#18BED4]" />
         <h2 className="text-3xl font-bold text-[#1F2833]">Skill Assessment</h2>
       </div>
-      <form className="p-4 bg-white shadow-lg rounded-2xl" action="">
-        <div className=" text-[#1F2833] text-start grid grid-cols-2 gap-5">
+      <form
+        className="p-4 bg-white shadow-lg rounded-2xl"
+        onSubmit={handleSubmit}
+      >
+        <div className="text-[#1F2833] text-start grid grid-cols-2 gap-5">
           <Domain
             options={Object.keys(data)}
             label="Select Your Domain"
-            className=""
-            option
             setOption={setOption}
           />
           <Experience
             label="Experience (in years)"
-            className=""
-            option
-            setOption={setOption}
+            setOption={setExperience}
           />
         </div>
         <div className="grid grid-cols-2 gap-5">
           {[...Array(8)].map((_, index) => (
             <Skill_Input
               key={index}
-              value={data[option]?.[index] || ""} // Assign the skill value or empty string if not available
+              value={skills[index]}
               index={index + 1}
-              disabled={!option} // Disable if no domain is selected
+              disabled={!option}
+              onChange={(e) => handleSkillChange(index, Number(e.target.value))}
             />
           ))}
         </div>

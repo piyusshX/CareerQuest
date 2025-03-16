@@ -21,6 +21,7 @@ function Navbar() {
     try {
       // Make a request to the server to log out
       const authToken = localStorage.getItem('authToken');
+      localStorage.removeItem('authToken');
       const response = await fetch('http://127.0.0.1:8000/api/logout/', {
         method: 'POST',
         headers: {
