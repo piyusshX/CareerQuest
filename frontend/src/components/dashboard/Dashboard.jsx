@@ -2,6 +2,7 @@ import React, { useDebugValue, useEffect, useState } from 'react'
 import UserProfile from './UserProfile'
 import UserJobRecommendation from './UserJobRecommendation'
 import SkillRating from './SkillRating'
+import SkillsChart from './SkillBarChart'
 
 function Dashboard() {
   const [userData, setUserData] = useState(null);
@@ -64,10 +65,11 @@ function Dashboard() {
 
 
   return (
-    <div className='py-40 px-20'>
+    <div className='py-40 px-32'>
       <UserProfile username={userData.user.username} email={userData.user.email} domain={userData.domain} experience={userData.experience} level={userData.predicted_proficiency} />
       <UserJobRecommendation job1={userData.predicted_job_role} match={userData.predicted_average_score} domain={userData.domain} />
-      <SkillRating userData={userData}/>
+      {/* <SkillRating userData={userData}/> */}
+      <SkillsChart userData={userData}/>
     </div>
   )
 }

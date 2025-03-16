@@ -93,7 +93,7 @@ function Navbar() {
             </li>
           ) : null
           )}
-          <>
+          {/* <>
             <li>
               <button className='nav-items bg-transparent mr-24 text-[#1F2833] hover:text-[#18BED4] transition-colors duration-200 group'
                 onClick={troubleshoot}
@@ -101,7 +101,7 @@ function Navbar() {
                 <div className="w-full h-[1.5px] bg-[#ffffff] cursor-pointer group-hover:bg-[#18BED4] transition-colors duration-200"></div>
               </button>
             </li>
-          </>
+          </> */}
           {authToken && authToken.length > 0 ? (
             <>
               <li>

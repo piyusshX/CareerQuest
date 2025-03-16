@@ -23,7 +23,7 @@ function SkillAssessment() {
 
     const payload = {
       skills: skills.reduce((acc, value, index) => {
-        acc[`Skill${index + 1}`] = value || 0; // Ensure default value if empty
+        acc[`${data[option]?.[index] || ""} `] = value || 0; // Ensure default value if empty
         return acc;
       }, {}),
       domain: option,

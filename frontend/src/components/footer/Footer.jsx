@@ -17,7 +17,7 @@ function Footer() {
                         <Logo />
                     </div>
                     <div className="copyright-text text-gray-400">
-                        © 2024 CareerQuest. All Rights Reserved.
+                        © 2025 CareerQuest. All Rights Reserved.
                     </div>
                     <div className="flex items-center space-x-6">
                         <a href="#" className="text-gray-600 text-2xl hover:text-[#18BED4] transition-colors">
