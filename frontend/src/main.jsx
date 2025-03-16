@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
-import { HeroSection, Signup, Login, JobRecommendation, SkillAssessment, Playlist, Dashboard } from './components/index'
+import { HeroSection, Signup, Login, About, JobRecommendation, SkillAssessment, Playlist, Dashboard } from './components/index'
 import { Provider } from 'react-redux'
 import store from './store/store'
 
@@ -18,6 +18,7 @@ const router = createBrowserRouter(
       <Route path='/skill-assessment' element={<SkillAssessment /> } />
       <Route path='/dashboard' element={<Dashboard /> } />
       <Route path='/learn' element={<Playlist /> } />
+      <Route path='/aboutus' element={<About /> } />
     </Route>
   )
 )

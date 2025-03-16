@@ -7,5 +7,6 @@ import Playlist from "./playlist/Playlist";
 import Footer from "./footer/Footer";
 import SkillAssessment from './skill_assessment/SkillAssessment'
 import Dashboard from "./dashboard/Dashboard";
+import About from "./about/About";
 
-export { Navbar, HeroSection, Footer, Signup, Login, JobRecommendation, SkillAssessment, Playlist, Dashboard };
+export { About, Navbar, HeroSection, Footer, Signup, Login, JobRecommendation, SkillAssessment, Playlist, Dashboard };
