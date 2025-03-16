@@ -28,7 +28,7 @@ function Login() {
             // onLogin(data.token); // Call the onLogin prop with the received token
             console.log('Login Successful:', data);
             dispatch(login(data))
-            navigate("/")
+            navigate("/dashboard")
         } else {
             const errorData = await response.json();
             console.error('Login Failed:', errorData);

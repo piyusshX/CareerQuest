@@ -28,7 +28,7 @@ function Signup() {
             console.log('Registration Successful:', data);
             localStorage.setItem('authToken', data.token)
             dispatch(login(data))
-            navigate("/")
+            navigate("/skill-assessment")
         } else {
             const errorData = await response.json();
             console.error('Registration Failed:', errorData);
